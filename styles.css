@@ -6,7 +6,7 @@
   user-select: text;
 }
 .cssbuttons-io-button {
-  background: #A370F0;
+  background: #55249e;
   color: white;
   font-family: inherit;
   padding: 0.35em;
@@ -60,7 +60,7 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/FiraCode-Regular.woff") format("woff")
+  src: url("/fonts/FiraCode-Regular.woff") format("woff")
 }
 
 @font-face {
@@ -68,7 +68,7 @@
   font-family: 'Fira Code';
   font-style: normal;
   font-weight: 800;
-  src: url("../fonts/FiraCode-Bold.woff") format("woff")
+  src: url("/fonts/FiraCode-Bold.woff") format("woff")
 }
 
 .button-container {
