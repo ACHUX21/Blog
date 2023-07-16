@@ -252,7 +252,7 @@ input[type="checkbox"]:checked {
     font-size: 10px;
   }
 .navigation-menu__inner>li.active{ 
-  color:rgb(0, 238, 255);}
+  color: #9000f7;}
   
   .navigation-menu__inner>li{
     flex: 0 0 auto;
