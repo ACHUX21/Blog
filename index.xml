@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome</title>
-    <link>/</link>
-    <description>Recent content on Welcome</description>
+    <title>Posts on Welcome</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Welcome</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Achux21</copyright>
-    <lastBuildDate>Fri, 07 Jul 2023 15:06:26 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jul 2023 15:06:26 +0100</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cat Pictures 2</title>
       <link>/posts/catpictures/</link>
@@ -394,38 +394,6 @@ Have fun... ★ I&amp;rsquo;m Achraf, and I&amp;rsquo;m 18 years old. I&amp;rsqu
 &lt;p&gt;★ &lt;em&gt;Playing CTFs&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;★ &lt;em&gt;Watching Netflix&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 </content>
-    </item>
-    
-    <item>
-      <title>Home</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Hi there I&amp;rsquo;m a cybersecurity student with a particular interest in web exploitation. Welcome to my cybersecurity blog, where I share my knowledge into the world of web security.
-As a proud member of the L3ak CTF team 🚩, I actively participate in Capture The Flag tournaments. These competitive events challenge us to solve security-related problems and puzzles, often focusing on web-based vulnerabilities. I&amp;rsquo;m always ready to face new challenges and learn from both our victories and defeats.</description>
-      <content>&lt;h1 id=&#34;hi-there&#34;&gt;Hi there&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;m a cybersecurity student with a particular interest in web exploitation. Welcome to my cybersecurity blog, where I share my knowledge into the world of web security.&lt;/p&gt;
-&lt;p&gt;As a proud member of the L3ak CTF team 🚩, I actively participate in Capture The Flag tournaments. These competitive events challenge us to solve security-related problems and puzzles, often focusing on web-based vulnerabilities. I&amp;rsquo;m always ready to face new challenges and learn from both our victories and defeats.&lt;/p&gt;
-&lt;p&gt;This blog is my platform to share valuable information and practical tips to help web players and organizations maintain their security in an increasingly digital world. I&amp;rsquo;ll be discussing the web CTF trends, as well as sharing my personal experiences in the field.&lt;/p&gt;
-&lt;p&gt;INFO:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ACHUX21&#34;&gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;So, there you Go&amp;hellip; enjoy!&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://l3ak.org/home/&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/Team-l3ak.org-blue&#34; alt=&#34;My Team&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://iloveforensics.com&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/Friend-iloveforensics.com-red&#34; alt=&#34;My Forensics-Friend&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>My-Writeups</title>
-      <link>/writeups/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/writeups/</guid>
-      <description></description>
-      <content></content>
     </item>
     
   </channel>
