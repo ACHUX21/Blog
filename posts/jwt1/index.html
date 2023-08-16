@@ -158,7 +158,7 @@ static/challs/samboxv5.html
 <p>To gain a clearer understanding, I searched for information on jwt.io to access helpful visualizations and explanations.</p>
 <h3 id="jwtiohttpsjwtio"><a href="https://jwt.io/">JWT.IO</a><a href="#jwtiohttpsjwtio" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/91d1b72b-d9db-49f6-951e-2509b73de49f" alt="jwt-io"></p>
-<p>While encoding the JWT, I observed that it utilizes the HS256 (HMAC_SHA256) algorithm along with a &ldquo;kid&rdquo; (Key ID) parameter.</p>
+<p>While decoding the JWT, I observed that it utilizes the HS256 (HMAC_SHA256) algorithm along with a &ldquo;kid&rdquo; (Key ID) parameter.</p>
 <p>The &ldquo;kid&rdquo; (key ID) claim is a string that signifies the key responsible for digitally signing the JWT.</p>
 <p>If you&rsquo;re interested in delving deeper into attacks involving the &ldquo;kid&rdquo; parameter in JWTs, you can find more information here: <a href="https://portswigger.net/web-security/jwt#injecting-self-signed-jwts-via-the-kid-parameter">kid-parameter</a></p>
 <p>Afterwards, I proceeded to modify the JWT by signing it with a particular secret key and conducting attacks on the JWT &ldquo;kid&rdquo; header,
