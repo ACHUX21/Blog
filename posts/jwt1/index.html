@@ -162,7 +162,7 @@ static/challs/samboxv5.html
 <p>The &ldquo;kid&rdquo; (key ID) claim is a string that signifies the key responsible for digitally signing the JWT.</p>
 <p>If you&rsquo;re interested in delving deeper into attacks involving the &ldquo;kid&rdquo; parameter in JWTs, you can find more information here: <a href="https://portswigger.net/web-security/jwt#injecting-self-signed-jwts-via-the-kid-parameter">kid-parameter</a></p>
 <p>Afterwards, I proceeded to modify the JWT by signing it with a particular secret key and conducting attacks on the JWT &ldquo;kid&rdquo; header,
-such as SQL injection and OS injection.
+such as SQL injection or OS injection.
 Eventually, I identified a path traversal vulnerability in the &ldquo;kid&rdquo; header.
 I attempted to alter the &ldquo;kid&rdquo; header to &ldquo;/dev/null&rdquo; and sign the JWT with an empty secret key.</p>
 <p><img src="https://github.com/ACHUX21/Writeups/assets/130113878/32fba5ca-a326-4f55-b5cc-bf6b626ac6bf" alt="empty-sign"></p>
